@@ -9,46 +9,44 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-
     int duration = Toast.LENGTH_SHORT;
     private final String TAG = this.getClass().getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Context context = getApplicationContext();
         setContentView(R.layout.activity_main);
-        Toast.makeText(context, "OnCreate", duration).show();
         super.onCreate(savedInstanceState);
-    }
-    @Override
-    protected void onStart() {
-        Context context = getApplicationContext();
-        Toast.makeText(context, "OnStart", duration).show();
-        super.onStart();
-    }
-    @Override
-    protected void onStop() {
-        Context context = getApplicationContext();
-        Toast.makeText(context, "OnStop", duration).show();
-        super.onStop();
+        Toast.makeText(this, "OnCreate", duration).show();
+        Log.d(TAG,"onCreate");
     }
     @Override
     protected void onDestroy() {
-        Context context = getApplicationContext();
-        Toast.makeText(context, "OnDestroy", duration).show();
+        Toast.makeText(this, "OnDestroy", duration).show();
+        Log.d(TAG,"onDestroy");
         super.onDestroy();
     }
     @Override
+    protected void onStart() {
+        super.onStart();
+        Toast.makeText(this, "OnStart", duration).show();
+        Log.d(TAG,"onStart");
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(this, "OnStop", duration).show();
+        Log.d(TAG,"onStop");
+    }
+    @Override
     protected void onPause() {
-        Context context = getApplicationContext();
-        Toast.makeText(context, "OnPause", duration).show();
         super.onPause();
+        Toast.makeText(this, "OnPause", duration).show();
+        Log.d(TAG,"onPause");
     }
     @Override
     protected void onResume() {
-        Context context = getApplicationContext();
-        Log.e(TAG,"onResume");
-        Toast.makeText(context, "OnResume", duration).show();
         super.onResume();
+        Toast.makeText(this, "OnResume", duration).show();
+        Log.d(TAG,"onResume");
     }
 }
